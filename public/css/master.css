@@ -1,0 +1,187 @@
+footer {
+    text-align: right;
+    width: 100%;
+    bottom: 5px;
+    right: 5px;
+    position: relative;
+}
+
+footer img {
+    width: 30px;
+    height: 18px;
+}
+
+.button {
+    float: right;
+    background-color: green; /* Green */
+    border: none;
+    border-radius: 10%;
+    color: white;
+    padding: 9px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 10px 30px 10px;
+}
+
+.disabled_button {
+    background-color: darkseagreen; /* Green */
+}
+
+.view_all {
+    float:none;
+    font-size: 2em;
+    text-align: center;
+}
+.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkgrey;
+    display: inline-block;
+}
+
+.navigation_title {
+    float: left;
+}
+
+.navigation_title a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.navigation_title a:hover {
+    background-color: grey;
+}
+
+.lost_found_block {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 30px;
+    display: block;
+}
+
+.lost_found_block:hover {
+    border: none;
+    border-right: 5px solid lightgrey;
+    border-bottom: 5px solid lightgrey;
+}
+
+.content {
+    margin: 10px;
+}
+
+.wrapper {
+    height: auto;
+    min-height: 95%;
+}
+
+
+.error {
+    color: red;
+    background-color: transparent;
+    margin-top: -15px;
+}
+
+.input_text {
+    width: 50px;
+}
+
+.paragraph {
+    margin-bottom: 10px;
+}
+
+input {
+    text-align: left;
+}
+
+.flag {
+    width: 20px;
+    height: 15px;
+    margin: 5px;
+    border-radius: 3px;
+}
+
+.selection {
+    clear: both;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.bottom_margin {
+    margin-bottom: 50px;
+}
+
+.choice_title {
+    font-size: 1.2em;
+}
+
+.choices_list {
+    clear: both;
+    display: block;
+}
+
+.choice {
+    display: block;
+    float: left;
+    margin: 10px;
+}
+
+.input_region {
+    clear: both;
+    display: inline-block;
+}
+
+.users {
+    display: inline-block;
+    width: auto;
+}
+
+.user {
+    clear: both;
+    display: inline-block;
+    margin-bottom: 2%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1%;
+    width: 30%;
+    height: 20%;
+    overflow: hidden;
+}
+
+.user:hover {
+    border: none;
+    border-right: 5px solid lightgrey;
+    border-bottom: 5px solid lightgrey;
+    overflow: auto;
+}
+
+.photo {
+    float: left;
+    width: 30%;
+    height: 98%;
+}
+
+.details {
+    float: right;
+    width: 60%;
+}
+
+.password {
+    font-size: 3em;
+    font-family: "Times New Roman", Times, serif;
+    font-style: oblique;
+    display: inline-block;
+    line-height: normal;
+    margin-top: 15px;
+    text-transform: lowercase;
+    color: darkorange;
+    font-weight: bold;
+}
