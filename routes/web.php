@@ -57,15 +57,21 @@ Route::get('/debug', function() {
 });
 
 
-Route::post('loremipsumgenerator/generate', 'LoremIpsumGeneratorController@generate')->name('LoremIpsumGenerator.generate');
+//Route::post('loremipsumgenerator/generate', 'LoremIpsumGeneratorController@generate')->name('LoremIpsumGenerator.generate');
+//
+//Route::get('loremipsumgenerator', 'LoremIpsumGeneratorController@index')->name('LoremIpsumGenerator.index');
+//
+//Route::post('randomusergenerator/generate', 'RandomUserGeneratorController@generate')->name('RandomUserGenerator.generate');
+//
+//Route::get('randomusergenerator', 'RandomUserGeneratorController@index')->name('RandomUserGenerator.index');
+//
+//Route::post('passwordgenerator/generate', 'PasswordGeneratorController@generate')->name('PasswordGenerator.generate');
+//
+//Route::get('passwordgenerator', 'PasswordGeneratorController@index')->name('PasswordGenerator.index');
 
-Route::get('loremipsumgenerator', 'LoremIpsumGeneratorController@index')->name('LoremIpsumGenerator.index');
 
-Route::post('randomusergenerator/generate', 'RandomUserGeneratorController@generate')->name('RandomUserGenerator.generate');
+Auth::routes();
 
-Route::get('randomusergenerator', 'RandomUserGeneratorController@index')->name('RandomUserGenerator.index');
+Route::get('/logout','Auth\LoginController@logout')->name('logout');
 
-Route::post('passwordgenerator/generate', 'PasswordGeneratorController@generate')->name('PasswordGenerator.generate');
-
-Route::get('passwordgenerator', 'PasswordGeneratorController@index')->name('PasswordGenerator.index');
-
+Route::get('/home', 'HomeController@index');

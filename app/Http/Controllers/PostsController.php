@@ -8,6 +8,7 @@
 
 namespace P4\Http\Controllers;
 
+use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
@@ -29,6 +30,32 @@ class PostsController extends Controller
     public function create()
     {
         return view('P4.create');
+    }
+
+    public function addNewPost(Request $request)
+    {
+        if ($request->__isset('random')) {
+            $length = rand(0, 99);
+        } else {
+
+            $validator = Validator::make($request->all(), [
+                'length' => 'required|between:0,99|numeric'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect('loremipsumgenerator')->withErrors($validator)->withInput();
+            }
+
+            $length = $request->input('length');
+        }
+
+        $generator = new \Badcow\LoremIpsum\Generator();
+        $paragraphs = $generator->getParagraphs($length);
+
+        return view('P3.result', [
+            'paragraphs' => $paragraphs,
+            'length' => trim($length)
+        ]);
     }
 
 }
