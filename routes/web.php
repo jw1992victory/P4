@@ -19,7 +19,19 @@ Route::post('homepage/login', 'HomePageController@login')->name('HomePage.login'
 
 Route::post('homepage/register', 'HomePageController@register')->name('HomePage.register');
 
-Route::get('posts/create', 'PostsController@create')->name('Posts.create');
+Route::get('posts/view', 'PostsController@view')->name('Posts.view')->middleware('auth');
+
+Route::get('posts/create', 'PostsController@create')->name('Posts.create')->middleware('auth');
+
+Route::post('posts/save', 'PostsController@save')->name('Posts.save')->middleware('auth');
+
+Route::get('posts/edit/{id}', 'PostsController@edit')->name('Posts.edit')->middleware('auth');
+
+Route::put('posts/update/{id}', 'PostsController@update')->name('Posts.update')->middleware('auth');
+
+Route::post('posts/delete', 'PostsController@delete')->name('Posts.delete')->middleware('auth');
+
+Route::post('posts/claim', 'PostsController@claim')->name('Posts.claim')->middleware('auth');
 
 Route::get('/debug', function() {
 
@@ -56,22 +68,8 @@ Route::get('/debug', function() {
 
 });
 
-
-//Route::post('loremipsumgenerator/generate', 'LoremIpsumGeneratorController@generate')->name('LoremIpsumGenerator.generate');
-//
-//Route::get('loremipsumgenerator', 'LoremIpsumGeneratorController@index')->name('LoremIpsumGenerator.index');
-//
-//Route::post('randomusergenerator/generate', 'RandomUserGeneratorController@generate')->name('RandomUserGenerator.generate');
-//
-//Route::get('randomusergenerator', 'RandomUserGeneratorController@index')->name('RandomUserGenerator.index');
-//
-//Route::post('passwordgenerator/generate', 'PasswordGeneratorController@generate')->name('PasswordGenerator.generate');
-//
-//Route::get('passwordgenerator', 'PasswordGeneratorController@index')->name('PasswordGenerator.index');
-
-
 Auth::routes();
 
-Route::get('/logout','Auth\LoginController@logout')->name('logout');
+Route::get('/logout','Auth\LoginController@logout')->name('logout'); //override logout
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomePageController@index');

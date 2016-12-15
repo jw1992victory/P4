@@ -11,9 +11,13 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="{{ URL::asset('js/p4.js') }}"></script>
 </head>
 <body>
+
+    @if(Session::get('flash_message') != null))
+        <div class='flash_message'>{{ Session::get('flash_message') }}</div>
+    @endif
+
     <div class="wrapper">
         <nav class="navbar navbar-default navbar-static-top">
 
@@ -46,24 +50,20 @@
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                    <li>
+                        <a href="#" role="button" aria-expanded="false">
+                            Welcome {{ Auth::user()->name }}
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
                         </a>
 
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ url('/logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
-
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </li>
                 @endif
             </ul>
@@ -80,7 +80,7 @@
     </div>
 
     <footer>
-        wendy jiang @ {{ date('Y') }} <img class="picture" src="/img/github.png"><a target="_blank" href="https://github.com/jw1992victory/P3">github</a>
+        wendy jiang @ {{ date('Y') }} <img class="picture" src="/img/github.png"><a target="_blank" href="https://github.com/jw1992victory/P4">github</a>
     </footer>
 
 </body>

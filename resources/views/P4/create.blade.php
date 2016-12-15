@@ -1,44 +1,45 @@
 @extends('master')
 
 @section('title')
-    Posts
+    Create A Post
 @endsection
 
 @section('content')
-    <form action="{{ url('/posts/addNewPost') }}" method="POST">
+    <form action="{{ url('/posts/save') }}" method="POST">
         {{ csrf_field() }}
-        <p>Lost Or Found
-            <input type="checkbox" name="lost"> LOST
-            <input type="checkbox" name="found"> FOUND
-        </p>
-        <p>Category
-            <select name="tag">
-                <option value="volvo">Wallet</option>
-                <option value="saab">Phone</option>
-                <option value="mercedes">Book</option>
-                <option value="audi">Bag</option>
-                <option value="audi">Key</option>
-                <option value="audi">Card</option>
-                <option value="audi">Other</option>
-            </select>
-        </p>
-        <div>Tag
-            <ul class="choices_list">
-                <li class="choice"><input type="radio" name="tag" id="US" value="united states"></li>
-                <li class="choice"><input type="radio" name="tag" id="Canada" value="canada">Canada</li>
-                <li class="choice"><input type="radio" name="tag" id="Englaund" value="england">England</li>
-                <li class="choice"><input type="radio" name="tag" id="Australia" value="australia">Australia</li>
-                <li class="choice"><input type="radio" name="tag" id="Germany" value="germany">Germany</li>
-                <li class="choice"><input type="radio" name="tag" id="China" value="china">China</li>
-            </ul>
-            <p>Add new tag<input type="text" name="newTag" value="@yield('newTag', old("newTag"))" class="input_text"></p>
+        <div name="lostorfound" class="input_section"><span class="sub_title">Lost Or Found </span>
+            <input type="radio" name="lostorfound" value="lost"> LOST
+            <input type="radio" name="lostorfound" value="found"> FOUND
         </div>
-        <p>Location <input type="text" name="location" value="@yield('location', old("location"))" class="input_text"></p>
-        <p>Contact
-            <input type="text" name="email" value="@yield('email', old("email"))" class="input_text">Email
-            <input type="text" name="phone" value="@yield('phone', old("phone"))" class="input_text">Phone
-        </p>
-        <p>Discription <textarea name="discription" value="@yield('discription', old("discription"))"></textarea></p>
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <div class="input_section"><span class="sub_title">Category </span>
+            <select name="categories">
+                @foreach ($categories as $category)
+                    <option value={{$category['id']}}>{{$category['name']}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="input_section"><p class="sub_title">Tag</p>
+            @foreach ($tags as $tag)
+                <input type="checkbox" name="tag[]" id={{$tag['id']}} value={{$tag['id']}}>{{$tag['name']}}
+            @endforeach
+        </div>
+        <div class="input_section"><span class="sub_title">Location</span> <input type="text" class="input_group" name="location" value="@yield('location', old("location"))" class="input_text"></div>
+        <div class="input_section"><span class="sub_title">Contact </span>
+            </br>
+            Email  <input type="text" name="email" value="@yield('email', old("email"))" class="input_text">
+            Phone <input type="text" name="phone" value="@yield('phone', old("phone"))" class="input_text">
+        </div>
+        <div class="input_section"><span class="sub_title">Discription </span><textarea name="discription" value="@yield('discription', old("discription"))">@yield('discription', old("discription"))</textarea></div>
+        <input type="submit" class="btn btn-primary input_section" value="Submit">
+
+        <div class="error">
+            @if(count($errors) > 0)
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
     </form>
 @endsection

@@ -19,19 +19,15 @@ class CreatePostsTable extends Migration
 
             $table->timestamps();
 
-            # The rest of the fields...
             $table->integer('lost_or_found');
             $table->string('location');
-            $table->integer('category_id');
+            $table->integer('category_id')->unsigned();
             $table->integer('lost_user_id')->nullable();
             $table->integer('found_user_id')->nullable();
             $table->string('contact_email')->nullable();
             $table->string('contact_phone')->nullable();
             $table->string('discription');
             $table->integer('claimed');
-
-//            $table->foreign('category_id')->references('id')->on('categories');
-
         });
     }
 

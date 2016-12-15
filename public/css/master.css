@@ -11,53 +11,8 @@ footer img {
     height: 18px;
 }
 
-.button {
-    float: right;
-    background-color: green; /* Green */
-    border: none;
-    border-radius: 10%;
-    color: white;
-    padding: 9px 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px 10px 30px 10px;
-}
-
-.disabled_button {
-    background-color: darkseagreen; /* Green */
-}
-
-.view_all {
-    float:none;
-    font-size: 2em;
-    text-align: center;
-}
-.navigation {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: darkgrey;
-    display: inline-block;
-}
-
-.navigation_title {
-    float: left;
-}
-
-.navigation_title a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-.navigation_title a:hover {
-    background-color: grey;
+.navbar-right {
+    padding-right: 20px;
 }
 
 .lost_found_block {
@@ -83,15 +38,15 @@ footer img {
     min-height: 95%;
 }
 
-
 .error {
     color: red;
     background-color: transparent;
-    margin-top: -15px;
+    margin-top: 2%;
+    margin-left: -15px;
 }
 
 .input_text {
-    width: 50px;
+    width: 150px;
 }
 
 .paragraph {
@@ -102,12 +57,6 @@ input {
     text-align: left;
 }
 
-.flag {
-    width: 20px;
-    height: 15px;
-    margin: 5px;
-    border-radius: 3px;
-}
 
 .selection {
     clear: both;
@@ -139,49 +88,104 @@ input {
     display: inline-block;
 }
 
-.users {
-    display: inline-block;
-    width: auto;
+.flash_message {
+    width:100%;
+    text-align:center;
+    padding:5px;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:yellow;
+    font-weight:bold;
 }
 
-.user {
-    clear: both;
-    display: inline-block;
-    margin-bottom: 2%;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 1%;
-    width: 30%;
-    height: 20%;
-    overflow: hidden;
+.redirect_link {
+    display: block;
 }
 
-.user:hover {
+.nav_link {
+    margin-top: 3%;
+    padding: 2%;
+    border: 5px solid lightgrey;
+    border-radius: 15%;
+    font-size: 2em;
+    text-align: center;
+}
+
+
+.add_new {
+    float:left;
+    margin-left: 20%;
+}
+
+.view_all {
+    float:right;
+    margin-right: 20%;
+}
+
+
+.nav_link:hover {
     border: none;
     border-right: 5px solid lightgrey;
     border-bottom: 5px solid lightgrey;
-    overflow: auto;
 }
 
-.photo {
-    float: left;
-    width: 30%;
-    height: 98%;
-}
-
-.details {
-    float: right;
+.background_pic {
     width: 60%;
+    height: 60%;
+    margin-left: 20%;
+    margin-top: 3%;
+    opacity: 0.8;
 }
 
-.password {
-    font-size: 3em;
-    font-family: "Times New Roman", Times, serif;
-    font-style: oblique;
+ul {
+    list-style-type: none;
+}
+
+.sub_title {
+    font: italic 1.2em "Comic Sans MS", cursive;
+}
+
+.inline_block {
     display: inline-block;
-    line-height: normal;
-    margin-top: 15px;
-    text-transform: lowercase;
-    color: darkorange;
-    font-weight: bold;
+}
+
+.input_group {
+    margin-left: 2%;
+}
+
+.input_section {
+    margin-top: 1%;
+    margin-left: 0.5%;
+}
+
+.post {
+    clear: both;
+    padding: 2%;
+    border: solid 1px grey;
+    border-radius: 5%;
+    display: inline-block;
+    width: 300px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    margin: 5px;
+}
+
+.claim {
+    float: right;
+    position: relative;
+}
+
+.posts {
+    clear: both;
+    display: inline-block;
+}
+
+.tag_block {
+    border: 1px solid lightblue;
+    background-color: lightblue;
+    border-radius: 15%;
+    margin: 1px 2px;
+    padding: 1px 5px;
 }
